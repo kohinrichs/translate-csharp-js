@@ -42,8 +42,8 @@ spellList.map(spell => {
     }
 })
 
-let spellBookGoodTitles = spellBookGood.map(s => s.name)
-let spellBookEvilTitles = spellBookEvil.map(s => s.name)
 
-console.log("Good Book", spellBookGoodTitles)
-console.log("Evil Book", spellBookEvilTitles)
+console.log("Good Book")
+let spellBookGoodTitles = spellBookGood.map(s => console.log(s.name))
+console.log("Evil Book")
+let spellBookEvilTitles = spellBookEvil.map(s => console.log(s.name))

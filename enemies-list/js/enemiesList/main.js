@@ -34,4 +34,9 @@ let enemyList = enemies.map(e => {
         return `${e.firstName} ${e.lastName}`
     }
 })
-console.log("My Enemies List", "----------------", enemyList)
+
+console.log("My Enemies List")
+console.log("----------------")
+for (enemy of enemyList) {
+    console.log(enemy)
+}
