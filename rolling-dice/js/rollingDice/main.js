@@ -1,11 +1,13 @@
 // Put your code here
 
-console.log("Let's roll some dice, baby!")
+console.log("Let's roll some dice, baby!");
+console.log("---------------------------");
+
 // Function to "roll" the dice
 let roll = () => {
     min = Math.ceil(1);
     max = Math.floor(6);
-    let dieValue = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+    let dieValue = Math.floor(Math.random() * (max - min + 1) + min)
 
     return dieValue
 }
