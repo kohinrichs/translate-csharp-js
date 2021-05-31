@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DinnerParty
 {
@@ -21,9 +22,36 @@ namespace DinnerParty
             List<Guest> table1 = new List<Guest>();
             List<Guest> table2 = new List<Guest>();
 
+            Dictionary<string, List<Guest>> tables = new Dictionary<string, List<Guest>>() {
+                { "Table 1", table1 },
+                { "Table 2", table2 }
+            };
+
             foreach(Guest guest in guestList)
             {
+                IEnumerable<string> table1Occupations = tables["Table 1"].Select(g => g.Occupation);
+
+                if(table1Occupations.Contains(guest.Occupation))
+                {
+                    tables["Table 2"].Add(guest);
+                } 
+                else
+                {
+                    tables["Table 1"].Add(guest);
+                } 
+            }
+
+            foreach (var table in tables)
+            {
+                List<Guest> tableGuests = tables[table.Key];
                 
+                Console.WriteLine(table.Key);
+
+                foreach (Guest guest in tableGuests)
+                {
+                    Console.WriteLine($"{guest.Name} ({guest.Occupation}) {guest.Bio}");
+                }
+
             }
         
         }
